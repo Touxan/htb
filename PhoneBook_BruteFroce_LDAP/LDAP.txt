@@ -1,0 +1,17 @@
+LDAP Bypassin 
+
+Try login with 
+
+Username : *
+Password : *
+
+With the search bar you can find all user with char + * like : A*
+
+No flag ..
+
+So try to bruteforcing the login page with py script.
+
+Because we can log with * 
+We can use this for finding mdp becasue we gone to login at each valid char we find
+
+The PassWord is the flag
